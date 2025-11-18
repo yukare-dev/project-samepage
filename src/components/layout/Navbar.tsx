@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { BookOpen, Search, Users, Library } from "lucide-react";
+import { Search, Users, Library, Home } from "lucide-react";
 
 export function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-black/5 bg-[#F9F9F7] backdrop-blur-md p-6">
       <div className="mx-auto flex max-w-7xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <BookOpen className="h-6 w-6 text-brand-indigo transitio-transform group-hover:-rotate-12" />
           <span className="font-serif text-2xl font-bold tracking-tight text-brand-ink">
             SamePage
           </span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
+          <NavLink href="/" icon={<Home size={18} />} text="Página inicial" />
           <NavLink
             href="/explore"
             icon={<Search size={18} />}
@@ -29,7 +29,10 @@ export function Navbar() {
           />
         </div>
         <div className="flex items-center gap-4">
-          <button className="rounded-full bg-brand-ink px-5 py-2 text-sm font-medium text-white hover:bg-gray-800 transition-colors">
+          <button
+            className="rounded-lg border border-indigo-200 py-2 px-4 text-center text-sm transition-all shadow-sm shadow-indigo-200 shadow-hover:shadow-lg text-brand-indigo hover:text-white hover:bg-indigo-600 hover:border-indigo-600 cursor-pointer"
+            type="button"
+          >
             Entrar
           </button>
         </div>

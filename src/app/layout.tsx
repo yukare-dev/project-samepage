@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "./components/layout/Navbar";
+import { Navbar } from "../components/layout/Navbar";
+import { ApolloProviderWrapped } from "../components/layout/ApolloProviderWrapped";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,8 +31,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${libreBaskerville.variable} antialiased bg-[#F9F9F7] text-[#24292F] min-h-screen flex flex-col`}
       >
-        <Navbar />
-        {children}
+        <ApolloProviderWrapped>
+          <Navbar />
+          {children}
+        </ApolloProviderWrapped>
       </body>
     </html>
   );

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import React from "react";
+import Link from "next/link";
 import { Star } from "lucide-react";
 
 interface BookCardProps {
