@@ -4,6 +4,7 @@ import { GET_BOOK_DETAILS_QUERY } from "@/lib/queries";
 import { useQuery } from "@apollo/client/react";
 import Image from "next/image";
 import { Loader, Star, Users } from "lucide-react";
+import { BookStatusButtons } from "./BookStatusButtons";
 
 interface BookData {
   books_by_pk: {
@@ -75,14 +76,12 @@ export default function BookDetails({ bookId }: { bookId: string }) {
           </div>
 
           <div className="mt-6 w-full max-w-[250px]">
-            {/* ESTE SERÁ UM CLIENT COMPONENT FUTURO */}
-            <div className="bg-brand-indigo text-white text-center py-3 rounded-lg font-bold hover:bg-opacity-90 transition cursor-pointer mb-3">
-              Marcar como LENDO
-            </div>
-
-            <div className="border border-brand-indigo/50 text-brand-indigo text-center py-3 rounded-lg font-bold transition cursor-pointer">
-              Iniciar Buddy Read 🤝
-            </div>
+            <BookStatusButtons
+              bookId={book.id}
+              // por enquanto, o status inicial é NONE
+              // futuramente: status real do usuário logado
+              initialStatus="NONE"
+            />
           </div>
 
           <div className="mt-6 text-sm w-full max-w-[250px] space-y-2 text-gray-600">
